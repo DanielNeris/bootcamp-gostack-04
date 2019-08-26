@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 
-import profile from './assets/kakashi.jpg';
+import TechList from './components/TecList';
 
 function App() {
-    return <img src={profile} width="200" />
+    return <TechList />
 }
 
 export default App;
