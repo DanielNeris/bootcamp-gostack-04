@@ -3,23 +3,27 @@ import React, { Component } from 'react';
 class TechList extends Component {
     constructor(props) {
         super(props);
-        
+
         this.state = {
-            techs: [ 'Node.js', 'ReactJS', 'React Native' ]
+            newTech: '',
+            techs: ['Node.js', 'ReactJS', 'React Native']
         }
     }
-    
-	render() {
+
+    handleInputChange = e => console.log(e.target.value);
+
+    render() {
         const { techs } = this.state;
 
-		return (
-			<ul>
-				<li>Noje.js</li>
-				<li>ReactJS</li>
-				<li>React Native</li>
-			</ul>
-		);
-	}
+        return (
+            <>
+                <ul>
+                    {techs.map(tech => <li key={tech}>{tech}</li>)}
+                </ul>
+                <input type="text" onChange={this.handleInputChange} />
+            </>
+        );
+    }
 }
 
 export default TechList;
