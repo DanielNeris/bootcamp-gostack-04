@@ -12,6 +12,10 @@ class TechList extends Component {
         }
     }
 
+    // static defaultProps = {
+    //     tech: 'aaa'
+    // };
+
     handleInputChange = e => this.setState({ newTech: e.target.value });
 
     handleDelete = (tech) => {
