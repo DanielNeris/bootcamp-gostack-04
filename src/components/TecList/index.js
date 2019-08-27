@@ -10,18 +10,34 @@ class TechList extends Component {
         }
     }
 
-    handleInputChange = e => console.log(e.target.value);
+    handleInputChange = e => this.setState({ newTech: e.target.value });
+
+    handleSubmit = e => {
+        e.preventDefault();
+
+        const { techs, newTech } = this.state;
+
+        this.setState({ 
+            techs: [...techs, newTech],
+            newTech: '',
+        });
+    }
 
     render() {
-        const { techs } = this.state;
+        const { techs, newTech } = this.state;
 
         return (
-            <>
+            <form onSubmit={this.handleSubmit}>
                 <ul>
                     {techs.map(tech => <li key={tech}>{tech}</li>)}
                 </ul>
-                <input type="text" onChange={this.handleInputChange} />
-            </>
+                <input
+                    type="text"
+                    onChange={this.handleInputChange}
+                    value={newTech}
+                />
+                <button type="submit">Enviar</button>
+            </form>
         );
     }
 }
